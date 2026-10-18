@@ -76,7 +76,17 @@ class Mission:
     @classmethod
     def from_csv(cls, file_name: str):
         # You are required to implement this method
-        pass
+        #its probably slightly easier to read the csv file with the csv library
+        #but as numpy is already imported, using the numpy library to read the csv file is better
+        #it keeps the virtual environment less bloated
+        #the "encoding" is not necessary as there are no special characters in the csv file
+        #however its genrally best practice
+        with open (file_name,mode="r",encoding="utf-8") as f:
+            data = np.loadtxt(f, delimiter=",", skiprows=1)
+            reference = data[:, 0]
+            cave_height = data[:, 1]
+            cave_depth = data[:, 2]
+        return cls(reference, cave_height, cave_depth)
 
 
 class ClosedLoop:
