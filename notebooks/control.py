@@ -1,4 +1,4 @@
-def controlller(y, r, y_prev, r_prev):
+def controller(y, r, y_prev, r_prev):
    
     # Outputs the action of a PD controller using inputs: y as current state, r as reference, y_prev as previous state, and r_prev as previous reference.
 
